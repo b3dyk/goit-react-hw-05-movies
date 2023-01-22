@@ -4,6 +4,11 @@ export const Container = styled.div`
   padding: 16px;
 `;
 
+export const StyledForm = styled.form`
+  display: flex;
+  gap: 16px;
+`;
+
 export const StyledList = styled.ul`
   display: flex;
   flex-direction: column;

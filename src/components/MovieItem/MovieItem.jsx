@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { StyledLink } from './MovieItem.styled';
 
 const { useLocation } = require('react-router-dom');
@@ -12,4 +13,9 @@ export const MovieItem = ({ id, title }) => {
       </StyledLink>
     </li>
   );
+};
+
+MovieItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };

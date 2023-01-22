@@ -8,5 +8,6 @@ export const StyledLink = styled(Link)`
   :hover,
   :focus {
     color: #f74f07;
+    text-decoration: underline;
   }
 `;
