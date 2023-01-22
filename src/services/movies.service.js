@@ -16,7 +16,7 @@ export const getTrendMovies = async () => {
   return data;
 };
 
-export const getMovie = async movieId => {
+export const getMovieById = async movieId => {
   const { data } = await moviesApi.get(`movie/${movieId}`, {
     params: {
       api_key: KEY,

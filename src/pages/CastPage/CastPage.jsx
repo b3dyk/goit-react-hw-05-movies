@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'services/movies.service';
 import { imageSrc } from 'services/image.service';
+import { Item, List, Text } from './CastPage.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -26,20 +27,20 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
+    <List>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         cast &&
         cast.map(({ id, name, character, profile_path }) => (
-          <li key={id}>
-            <img src={imageSrc(200, profile_path)} alt={name} width="150" />
-            <p>Name: {name}</p>
-            <p>Character: {character}</p>
-          </li>
+          <Item key={id}>
+            <img src={imageSrc(200, profile_path)} alt={name} width="100" />
+            <Text>Name: {name}</Text>
+            <Text>Character: {character}</Text>
+          </Item>
         ))
       )}
-    </ul>
+    </List>
   );
 };
 

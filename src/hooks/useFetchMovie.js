@@ -1,4 +1,4 @@
-import { getMovie } from 'services/movies.service';
+import { getMovieById } from 'services/movies.service';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -7,7 +7,7 @@ export const useFetchMovie = () => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    getMovie(movieId)
+    getMovieById(movieId)
       .then(setMovie)
       .catch(error => console.error(error));
   }, [movieId]);
