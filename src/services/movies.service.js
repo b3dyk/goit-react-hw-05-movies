@@ -14,9 +14,7 @@ export const getTrendMovies = async () => {
     },
   });
 
-  const results = data.results.map(({ id, title }) => ({ id, title }));
-
-  return results;
+  return data.results.map(({ id, title }) => ({ id, title }));
 };
 
 export const getMovieById = async movieId => {
@@ -64,7 +62,5 @@ export const searchMovie = async query => {
     },
   });
 
-  const results = data.results.map(({ id, title }) => ({ id, title }));
-
-  return results;
+  return data.results.map(({ id, title }) => ({ id, title }));
 };
