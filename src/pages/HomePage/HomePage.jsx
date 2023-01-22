@@ -12,7 +12,7 @@ const HomePage = () => {
     const fetchData = async ({ page }) => {
       setIsLoading(true);
       try {
-        const { results } = await getTrendMovies({ page });
+        const results = await getTrendMovies({ page });
         setMovies([...results]);
       } catch (error) {
         console.error(error);

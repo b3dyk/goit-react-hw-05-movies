@@ -6,15 +6,15 @@ export const Container = styled.div`
 
 export const StyledForm = styled.form`
   display: flex;
-  gap: 16px;
 `;
 
 export const StyledInput = styled.input`
   padding: 8px;
   width: 350px;
-  border-radius: 4px;
   border: 1px solid #020930;
   background-color: transparent;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
 
   :focus-within {
     border: 1px solid #f74f07;
@@ -27,7 +27,8 @@ export const StyledButton = styled.button`
   border: none;
   color: #f74f07;
   background-color: #020930;
-  border-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 `;
 
 export const StyledList = styled.ul`

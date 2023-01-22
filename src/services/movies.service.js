@@ -13,7 +13,10 @@ export const getTrendMovies = async () => {
       page: 1,
     },
   });
-  return data;
+
+  const results = data.results.map(({ id, title }) => ({ id, title }));
+
+  return results;
 };
 
 export const getMovieById = async movieId => {
@@ -23,7 +26,10 @@ export const getMovieById = async movieId => {
       language: 'en-US',
     },
   });
-  return data;
+
+  const { title, poster_path, vote_average, overview, genres } = data;
+
+  return { title, poster_path, vote_average, overview, genres };
 };
 
 export const getMovieCast = async movieId => {
@@ -33,7 +39,7 @@ export const getMovieCast = async movieId => {
       language: 'en-US',
     },
   });
-  return data;
+  return data.cast;
 };
 
 export const getMovieReviews = async movieId => {
@@ -57,5 +63,8 @@ export const searchMovie = async query => {
       query,
     },
   });
-  return data;
+
+  const results = data.results.map(({ id, title }) => ({ id, title }));
+
+  return results;
 };

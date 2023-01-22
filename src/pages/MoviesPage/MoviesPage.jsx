@@ -25,7 +25,7 @@ const MoviesPage = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const { results } = await searchMovie(searchQuery);
+        const results = await searchMovie(searchQuery);
         setMovies([...results]);
       } catch (error) {
         console.error(error);
