@@ -8,18 +8,14 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const fetch = async ({ page }) => {
+    const fetchData = async ({ page }) => {
       try {
-        const data = await getTrendMovies({ page });
-        handleResolve(data);
+        const { results } = await getTrendMovies({ page });
+        setMovies([...results]);
       } catch {}
     };
 
-    const handleResolve = ({ results }) => {
-      setMovies(state => [...state, ...results]);
-    };
-
-    fetch({ page: 1 });
+    fetchData({ page: 1 });
   }, []);
 
   return (

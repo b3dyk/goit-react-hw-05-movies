@@ -2,7 +2,13 @@ import { MovieItem } from 'components/MovieItem/MovieItem';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchMovie } from 'services/movies.service';
-import { Container, StyledForm, StyledList } from './MoviesPage.styled';
+import {
+  Container,
+  StyledButton,
+  StyledForm,
+  StyledInput,
+  StyledList,
+} from './MoviesPage.styled';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,8 +47,12 @@ const MoviesPage = () => {
   return (
     <Container>
       <StyledForm onSubmit={handleSubmit}>
-        <input type="text" name="search" placeholder="Enter key word..." />
-        <button type="submit">Search</button>
+        <StyledInput
+          type="text"
+          name="search"
+          placeholder="Enter key word..."
+        />
+        <StyledButton type="submit">Search</StyledButton>
       </StyledForm>
 
       {isLoading ? (
