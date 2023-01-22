@@ -4,7 +4,7 @@ import { getMovieReviews } from 'services/movies.service';
 
 export const useFetchReviews = () => {
   const { movieId } = useParams();
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
     getMovieReviews(movieId)
@@ -12,5 +12,5 @@ export const useFetchReviews = () => {
       .catch(error => console.error(error));
   }, [movieId]);
 
-  return reviews.results;
+  return reviews;
 };

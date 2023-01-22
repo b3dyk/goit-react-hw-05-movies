@@ -44,7 +44,7 @@ export const getMovieReviews = async movieId => {
       page: 1,
     },
   });
-  return data;
+  return data.results;
 };
 
 export const searchMovie = async query => {

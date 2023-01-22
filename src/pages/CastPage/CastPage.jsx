@@ -30,9 +30,10 @@ const Cast = () => {
     <List>
       {isLoading ? (
         <p>Loading...</p>
+      ) : !cast.length ? (
+        <p>No information</p>
       ) : (
-        cast &&
-        cast.map(({ id, name, character, profile_path }) => (
+        cast?.map(({ id, name, character, profile_path }) => (
           <Item key={id}>
             <img src={imageSrc(200, profile_path)} alt={name} width="100" />
             <Text>Name: {name}</Text>
