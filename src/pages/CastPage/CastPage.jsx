@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'services/movies.service';
 import { imageSrc } from 'services/image.service';
 import { Item, List, Text } from './CastPage.styled';
+import { Loader } from 'components/Loader/Loader';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -29,7 +30,7 @@ const Cast = () => {
   return (
     <List>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : !cast.length ? (
         <p>No information</p>
       ) : (

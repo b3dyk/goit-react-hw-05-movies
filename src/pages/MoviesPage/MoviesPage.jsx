@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader';
 import { MovieItem } from 'components/MovieItem/MovieItem';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -56,7 +57,7 @@ const MoviesPage = () => {
       </StyledForm>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <StyledList>
           {movies?.map(({ id, title, poster_path, vote_average }) => (

@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader';
 import { MovieItem } from 'components/MovieItem/MovieItem';
 import React from 'react';
 import { useState, useEffect } from 'react';
@@ -28,7 +29,7 @@ const HomePage = () => {
     <Container>
       <Heading>Trending today</Heading>
       {isLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <StyledList>
           {movies?.map(({ id, title, poster_path, vote_average }) => (
