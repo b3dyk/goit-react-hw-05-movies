@@ -1,6 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const MainContainer = styled.div`
+  padding: 24px;
+  max-width: 1248px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 export const StyledButton = styled.button`
   border: none;
   background-color: transparent;

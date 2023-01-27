@@ -2,9 +2,15 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  padding: 16px;
   border-bottom: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`;
+
+export const Container = styled.div`
+  padding: 16px;
+  max-width: 1248px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const StyledList = styled.ul`

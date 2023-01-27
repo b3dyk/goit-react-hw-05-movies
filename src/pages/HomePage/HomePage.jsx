@@ -2,7 +2,7 @@ import { MovieItem } from 'components/MovieItem/MovieItem';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getTrendMovies } from 'services/movies.service';
-import { Container, StyledList } from './HomePage.styled';
+import { Container, Heading, StyledList } from './HomePage.styled';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -26,13 +26,19 @@ const HomePage = () => {
 
   return (
     <Container>
-      <h1>Trending today</h1>
+      <Heading>Trending today</Heading>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <StyledList>
-          {movies?.map(({ id, title }) => (
-            <MovieItem key={id} id={id} title={title} />
+          {movies?.map(({ id, title, poster_path, vote_average }) => (
+            <MovieItem
+              key={id}
+              id={id}
+              title={title}
+              poster={poster_path}
+              vote={vote_average}
+            />
           ))}
         </StyledList>
       )}

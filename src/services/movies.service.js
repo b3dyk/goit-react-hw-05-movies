@@ -14,7 +14,12 @@ export const getTrendMovies = async () => {
     },
   });
 
-  return data.results.map(({ id, title }) => ({ id, title }));
+  return data.results.map(({ id, title, poster_path, vote_average }) => ({
+    id,
+    title,
+    poster_path,
+    vote_average,
+  }));
 };
 
 export const getMovieById = async movieId => {
@@ -28,6 +33,21 @@ export const getMovieById = async movieId => {
   const { title, poster_path, vote_average, overview, genres } = data;
 
   return { title, poster_path, vote_average, overview, genres };
+};
+
+export const getMovieTrailers = async movieId => {
+  const { data } = await moviesApi.get(`/movie/${movieId}/videos`, {
+    params: {
+      api_key: KEY,
+      language: 'en-US',
+    },
+  });
+
+  const youTubeVideo = data.results.find(
+    vid => vid.site === 'YouTube' && vid.type === 'Trailer'
+  );
+
+  return youTubeVideo;
 };
 
 export const getMovieCast = async movieId => {
@@ -62,5 +82,10 @@ export const searchMovie = async query => {
     },
   });
 
-  return data.results.map(({ id, title }) => ({ id, title }));
+  return data.results.map(({ id, title, poster_path, vote_average }) => ({
+    id,
+    title,
+    poster_path,
+    vote_average,
+  }));
 };

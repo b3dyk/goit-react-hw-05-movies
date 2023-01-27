@@ -1,17 +1,29 @@
 import PropTypes from 'prop-types';
-import { StyledLink } from './MovieItem.styled';
+import { imageSrc } from 'services/image.service';
+import {
+  Poster,
+  StyledLink,
+  Text,
+  Vote,
+  Wrapper,
+  Item,
+} from './MovieItem.styled';
 
 const { useLocation } = require('react-router-dom');
 
-export const MovieItem = ({ id, title }) => {
+export const MovieItem = ({ id, title, poster, vote }) => {
   const location = useLocation();
 
   return (
-    <li>
+    <Item>
       <StyledLink to={'/movies/' + id} state={{ from: location }}>
-        {title}
+        <Poster src={imageSrc(300, poster)} alt={title} width="300" />
+        <Wrapper>
+          <Text>{title}</Text>
+          <Vote>{vote?.toFixed(1)}</Vote>
+        </Wrapper>
       </StyledLink>
-    </li>
+    </Item>
   );
 };
 

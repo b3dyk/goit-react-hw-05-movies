@@ -4,20 +4,28 @@ import { useFetchMovie } from 'hooks/useFetchMovie';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
   Container,
+  MainContainer,
   StyledButton,
   StyledList,
   StyledNavLink,
   Wrapper,
 } from './MovieDetailsPage.styled';
+import { useState } from 'react';
+import { Modal } from 'components/Modal/Modal';
 
 const MovieDetailsPage = () => {
-  const movie = useFetchMovie();
+  const [isModalShown, setIsModalShown] = useState(false);
+  const { movie, trailer } = useFetchMovie();
 
   const navigate = useNavigate();
   const location = useLocation();
 
+  const toggleModal = () => {
+    setIsModalShown(state => !state);
+  };
+
   return (
-    <>
+    <MainContainer>
       <StyledButton
         type="button"
         onClick={() => navigate(location?.state?.from ?? '/')}
@@ -34,6 +42,11 @@ const MovieDetailsPage = () => {
             <p>{movie.overview}</p>
             <h3>Genres</h3>
             <p>{movie.genres.map(({ name }) => name).join(', ')}</p>
+            {trailer && (
+              <StyledButton type="button" onClick={toggleModal}>
+                Trailer
+              </StyledButton>
+            )}
           </div>
         </Wrapper>
       )}
@@ -52,8 +65,10 @@ const MovieDetailsPage = () => {
           </li>
         </StyledList>
       </Container>
+      {isModalShown && <Modal src={trailer.key} onClose={toggleModal} />}
+
       <Outlet />
-    </>
+    </MainContainer>
   );
 };
 

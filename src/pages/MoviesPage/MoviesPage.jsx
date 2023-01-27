@@ -59,8 +59,14 @@ const MoviesPage = () => {
         <p>Loading...</p>
       ) : (
         <StyledList>
-          {movies?.map(({ id, title }) => (
-            <MovieItem key={id} id={id} title={title} />
+          {movies?.map(({ id, title, poster_path, vote_average }) => (
+            <MovieItem
+              key={id}
+              id={id}
+              title={title}
+              poster={poster_path}
+              vote={vote_average}
+            />
           ))}
         </StyledList>
       )}
