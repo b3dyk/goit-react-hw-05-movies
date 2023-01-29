@@ -7,10 +7,17 @@ export const StyledHeader = styled.header`
 `;
 
 export const Container = styled.div`
+  display: flex;
+  gap: 50px;
+  align-items: center;
   padding: 16px;
   max-width: 1248px;
   margin-left: auto;
   margin-right: auto;
+`;
+
+export const Logo = styled.img`
+  display: block;
 `;
 
 export const StyledList = styled.ul`
