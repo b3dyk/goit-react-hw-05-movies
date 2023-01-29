@@ -28,6 +28,8 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 700;
   text-decoration: none;
 
+  transition: color 250ms ease;
+
   &.active {
     color: #f74f07;
   }

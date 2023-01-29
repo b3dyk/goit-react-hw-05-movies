@@ -21,9 +21,39 @@ export const StyledButton = styled.button`
 
   cursor: pointer;
 
+  transition: color 250ms ease;
+
   :hover,
   :focus {
     color: #f74f07;
+  }
+`;
+
+export const TrailerButton = styled.button`
+  border: none;
+  background-color: #020930;
+  padding: 8px;
+  min-width: 120px;
+  height: 40px;
+  border-radius: 4px;
+
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  transform: scale(1);
+
+  cursor: pointer;
+
+  transition: background-color 250ms ease, transform 250ms ease;
+
+  :hover,
+  :focus {
+    background-color: #f74f07;
+  }
+
+  :active {
+    transform: scale(0.95);
   }
 `;
 
@@ -51,6 +81,7 @@ export const StyledList = styled.ul`
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   color: #020930;
+  transition: color 250ms ease;
 
   &.active {
     color: #f74f07;

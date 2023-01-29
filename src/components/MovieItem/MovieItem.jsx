@@ -20,7 +20,7 @@ export const MovieItem = ({ id, title, poster, vote }) => {
         <Poster src={imageSrc(300, poster)} alt={title} width="300" />
         <Wrapper>
           <Text>{title}</Text>
-          <Vote>{vote?.toFixed(1)}</Vote>
+          <Vote>{vote !== 0 ? vote?.toFixed(1) : 'n/a'}</Vote>
         </Wrapper>
       </StyledLink>
     </Item>

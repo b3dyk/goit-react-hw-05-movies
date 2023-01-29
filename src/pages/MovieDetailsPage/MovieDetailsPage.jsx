@@ -8,6 +8,7 @@ import {
   StyledButton,
   StyledList,
   StyledNavLink,
+  TrailerButton,
   Wrapper,
 } from './MovieDetailsPage.styled';
 import { useState } from 'react';
@@ -43,9 +44,9 @@ const MovieDetailsPage = () => {
             <h3>Genres</h3>
             <p>{movie.genres.map(({ name }) => name).join(', ')}</p>
             {trailer && (
-              <StyledButton type="button" onClick={toggleModal}>
+              <TrailerButton type="button" onClick={toggleModal}>
                 Trailer
-              </StyledButton>
+              </TrailerButton>
             )}
           </div>
         </Wrapper>
